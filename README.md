@@ -4,7 +4,15 @@ Startup application for BYU CS260 class
 
 Sometimes it is really hard to get to the gym. You may have a busy schedule or you may have responsibilities at home that keep you away. Whatever the reason mya be, you should still be able to get the exercise you need and want. The Deck of Death application uses a virtual deck of cards where you assign four workouts that typically can be done in your home to each suit. The app will randomly shuffle the cards and you complete the specified number of repetitions on the card. You can keep track of your workouts, the time it takes to complete them, and you can even workout with friends! 
 
-## Tecnologies
+## Key Features
+- Secure login over HTTPS
+- Ability to select workouts for each suit.
+- Displays the current card, how many are left, and the time elapsed during your workout.
+- Ability to connect with friends and receive notifications when they have started/completed a workout. 
+- Workouts are persistently stored. 
+
+
+## Technologies
 
 - **HTML** - Uses correct HTML structure for application. Three HTML pages. One for login, one choosing a workout, and one during the workout.
 - **CSS** - Application styling that looks good on different screen sizes, uses good whitespace, color choice and contrast.
