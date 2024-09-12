@@ -11,6 +11,8 @@ Sometimes it is really hard to get to the gym. You may have a busy schedule or y
 - Ability to connect with friends and receive notifications when they have started/completed a workout. 
 - Workouts are persistently stored. 
 
+## Design
+![image](deckOfDeathUI.jpg)
 
 ## Technologies
 
