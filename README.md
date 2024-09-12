@@ -12,7 +12,9 @@ Sometimes it is really hard to get to the gym. You may have a busy schedule or y
 - Workouts are persistently stored. 
 
 ## Design
+This is a rough design of what the UI will look like during the workout.
 ![image](deckOfDeathUI.jpg)
+The backend will randomly go through all the cards in the deck and send notifications to your friends when you are starting/completing a workout if they have connected to the server. 
 
 ## Technologies
 
