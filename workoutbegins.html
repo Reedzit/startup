@@ -22,19 +22,30 @@
     </header>
 
     <main>
-      <h1>Why Conquer the Deck of Death?</h1>
-      <img src="images/grimReaperQuestioningLife.png" alt="Grim Reaper Questioning Life">
-
+      <h1>Destroy the Deck of Death</h1>
+      <img src="images/cards/kingspades.png" alt="kingspades" >
       <form method="get" action="play.html"></form>
-        <div>
-          The deck of death is a convenient yet difficult workout.
-          You start with a deck of cards where you assign a workout to each suit, 
-          perform the number of repetitions specified on the card, and then proceed to the next card. 
-          The goal is to complete all 52 cards as quickly as you can. 
-          This website will allow you to complete a workout,
-          save your workout, and share your workout with friends. 
-        </div>
+      <h2>13 Pushups</h2>
+        <button type="previousCard">Previous</button>
+        <button type="nextCard">Next</button>
       </form>
+      <div class="stop watch">
+        <h2>Stop Watch</h2>
+        <div id="time">
+          <span class="digit" id="hr">
+            00
+          </span>
+          <span class="txt">Hr</span>
+          <span class="digit" id="min">00</span>
+          <span class="txt">Min</span>
+          <span class="digit" id="sec">00</span>
+          <span class="txt">Sec</span>
+        </div>
+        <div id="buttons">
+          <button class="btn" id="start">Start</button>
+          <button class="btn" id="stop">Stop</button>
+        </div>
+      </div>
     </main>
 
     <footer>
