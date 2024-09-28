@@ -33,10 +33,16 @@ The backend will randomly go through all the cards in the deck and send notifica
 
 ## Startup HTML Deliverable
 - **HTML Pages**
-  - index.html is the page to login where you can sign in or sign up. 
-  - newWorkout.html is the page to configure your workout and begin.
-  - workoutbegins.html is the page that shows up as you are completing the workout. It displays the current workout with the corresponding card and a stop watch to track your time.
-  - history.html is the page where you can track your workout history with the time it took to complete it and the date you completed it. 
-  - friends.html is the page where you can connect with friends and see the progress your friends have made. 
-  - about.html is the page that gives information about what the deck of death is and the goal and capabilities of the deck of death web application. 
+  - index.html is the page to login where you can sign in or sign up. You can access this page by navigating to startup.deckofdeath.click or clicking on "Home" on the navigation menu in the application. 
+  - newWorkout.html is the page to configure your workout and begin. You can access this page by clicking on the "Begin New Workout" button on the navigation menu.
+  - workoutbegins.html is the page that shows up as you are completing the workout. It displays the current workout with the corresponding card and a stop watch to track your time. You can access this page by going to New Workout and pressing the begin button.
+  - history.html is the page where you can track your workout history with the time it took to complete it and the date you completed it. You can access this page by clicking on "Workout History" in the navigation menu.
+  - friends.html is the page where you can connect with friends and see the progress your friends have made. You can access this page by clicking on "Friends" in the navigation menu.
+  - about.html is the page that gives information about what the deck of death is and the goal and capabilities of the deck of death web application. You can access this page by clicking "About" in the navigation menu. 
+- **Simon HTML** is deployed to simon.deckofdeath.click
+- **Application Images** were generated using Imagen 3 AI software.
+- **Database** will be implemented to keep track of signed up users and friends of each users along with their workout data. 
+- **WebSocket** will be implemented to let friends know when they are working out. This is shown with a notification ribbon at the bottom of each page. 
+
+
 
