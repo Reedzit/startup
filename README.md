@@ -32,5 +32,11 @@ The backend will randomly go through all the cards in the deck and send notifica
 - **WebSocket** - You will receive a notification when a friend is participating, completes a workout/online. 
 
 ## Startup HTML Deliverable
-- I created an index.html page where the home page is sent to to log in.
-- There is a "Begin Workout" page where you can choose what workout you would like to do.
+- **HTML Pages**
+  - index.html is the page to login where you can sign in or sign up. 
+  - newWorkout.html is the page to configure your workout and begin.
+  - workoutbegins.html is the page that shows up as you are completing the workout. It displays the current workout with the corresponding card and a stop watch to track your time.
+  - history.html is the page where you can track your workout history with the time it took to complete it and the date you completed it. 
+  - friends.html is the page where you can connect with friends and see the progress your friends have made. 
+  - about.html is the page that gives information about what the deck of death is and the goal and capabilities of the deck of death web application. 
+
