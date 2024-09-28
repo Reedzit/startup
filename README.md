@@ -30,3 +30,7 @@ The backend will randomly go through all the cards in the deck and send notifica
   - uses a service to generate pictures of workouts.
 - **DB/Login** - Store users, friends, and data from each workout.
 - **WebSocket** - You will receive a notification when a friend is participating, completes a workout/online. 
+
+## Startup HTML Deliverable
+- I created an index.html page where the home page is sent to to log in.
+- There is a "Begin Workout" page where you can choose what workout you would like to do.
