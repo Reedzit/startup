@@ -27,7 +27,7 @@ The backend will randomly go through all the cards in the deck and send notifica
   - retrieving workout history
   - submitting workout data
   - retrieving workout data from friends
-  - uses a service to generate pictures of workouts.
+  - uses a service to generate pictures of cards.
 - **DB/Login** - Store users, friends, and data from each workout.
 - **WebSocket** - You will receive a notification when a friend is participating, completes a workout/online. 
 

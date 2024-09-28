@@ -11,30 +11,56 @@
       <nav>
         <menu>
           <table>
-          <td><a href="index.html">Home</a></td>
-          <td><a href="beginworkout.html">Begin New Workout</a></td>
-          <td><a href="history.html">Workout History</a></td>
-          <td><a href="friends.html">Friends</a></td>
-          <td><a href="about.html">About</a></td>
+            <td><a href="index.html">Home</a></td>
+            <td><a href="newworkout.html">Begin New Workout</a></td>
+            <td><a href="history.html">Workout History</a></td>
+            <td><a href="friends.html">Friends</a></td>
+            <td><a href="about.html">About</a></td>
           </table>
         </menu>
       </nav>
     </header>
 
     <main>
-      <h1>Conquer the Deck of Death</h1>
-      <img src="images/grimReaper.jpg" alt="Grim Reaper">
-      <form method="get" action="play.html"></form>
-      <h2>Login to Begin</h2>
+      <h1>Conquer the Deck of Death with Friends</h1>
+      <img src="images/grimReaperWithFriends.png" alt="Grim Reaper With Friends" width="250" height="250">
+      <h2>Add a Friend</h2>
         <div>
-          <input type="text" placeholder="your@email.com" />
+          <input type="name" placeholder="Friend's name" />
         </div>
-        <div>
-          <input type="password" placeholder="password" />
-        </div>
-        <button type="submit">Login</button>
-        <button type="submit">Create</button>
-      </form>
+        <button type="submit">Find</button>
+        <button type="submit">Add</button>
+      <h2>Friends List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Friend</th>
+            <th>Best Time</th>
+            <th>Last Workout Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="friend">
+            <td id="friend name">Billy</td>
+            <td id="time"> 2 seconds</td>
+            <td id="date"> 09/27/2008</td>
+          </tr>
+          <tr id="friend">
+            <td id="friend name">Mandy</td>
+            <td id="time"> 5 seconds</td>
+            <td id="date"> 04/60/2008</td>
+          </tr>
+          <tr id="friend">
+            <td id="friend name">Grim</td>
+            <td id="time"> 12 minutes</td>
+            <td id="date"> 9/8/1004</td>
+          </tr>
+        </tbody>
+       </table>
+       <div>
+        <h2>Notifications</h2>
+        <span>Billy has just began a workout!</span>
+      </div>
     </main>
 
     <footer>
