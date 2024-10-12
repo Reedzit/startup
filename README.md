@@ -51,4 +51,4 @@ The backend will randomly go through all the cards in the deck and send notifica
   - I used a color scheme that seemed most intuitive for the Deck of Death. I used mostly light/dark greys and white. 
   - I formatted the spacing of the text and images using bootstrap commands and also separate css files for each page to allow for any specific updates in the future. 
 - **Project Changes**
-  - I think I will use an API for the timer instead of generating pictures. I think it will be a bit cheaper that way. 
+  - I think I will use an API for the timer instead of generating pictures. I think it will be a bit cheaper that way and still fulfills the requirement of an outside service. 
