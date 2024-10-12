@@ -12,53 +12,63 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="main.css">
   </head>
-  <body class="bg-danger text-light">
-    <header class="bg-secondary text-light p-2">
-      <nav>
-        <h1><a class="nav-link" href="https://github.com/Reedzit/startup">Deck of Death</a></h1>
-        <menu class="nav-link">
-          <table class="text-dark">
-          <td><a class="nav-link active mx-3" href="index.html">Home</a></td>
-          <td><a class="nav-link mx-3" href="newworkout.html">Begin New Workout</a></td>
-          <td><a class="nav-link mx-3" href="history.html">Workout History</a></td>
-          <td><a class="nav-link mx-3" href="friends.html">Friends</a></td>
-          <td><a class="nav-link mx-3" href="about.html">About</a></td>
-          </table>
-        </menu>
-        <div class="text-end"> User will go here</div>
-      </nav>
+  <body class="d-flex">
+    <header class=" d-flex bg-secondary px-2">
+      <nav class="navbar navbar-expand-lg w-100">
+        <h1 class="navbar-brand">
+          <a class="nav-link" href="https://github.com/Reedzit/startup">Deck of Death</a>
+        </h1>
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active mx-2" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="newworkout.html">Begin New Workout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="history.html">Workout History</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="friends.html">Friends</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="about.html">About</a>
+          </li>
+        </ul>
+        <div class="text-light">
+          User will go here
+        </div>
+      </nav> 
     </header>
 
-    <main>
-      <h1 class="text-center">Conquer the Deck of Death</h1>
-      <img class=""src="images/grimReaper.jpg" alt="Grim Reaper">
+    <main class="container-fluid flex-grow-1 bg-dark">
+      <h1 class="text-center text-secondary mt-4">Conquer the Deck of Death</h1>
+      <img class="mx-auto d-block"src="images/grimReaper.jpg" alt="Grim Reaper" height="300px">
       <form method="get" action="play.html"></form>
-      <h2 class="text-center m-2">Login to Begin</h2>
-      <div class="text-center ">
+      <h2 class="text-secondary text-center m-2">Login to Begin</h2>
+      <div class="justify-content-center align-items-center">
         <div >
-          <input class="m-2" type="first name" placeholder="first name" />
+          <input class="bg-light m-2 form-control rounded" type="first name" placeholder="first name" />
         </div>
         <div>
-          <input class="m-2" type="last name" placeholder="last name" />
+          <input class="bg-light m-2 form-control rounded" type="last name" placeholder="last name" />
         </div>
         <div>
-          <input class="m-2" type="text" placeholder="your@email.com" />
+          <input class="bg-light m-2 form-control rounded" type="text" placeholder="your@email.com" />
         </div>
         <div>
-          <input class="m-2" type="password" placeholder="password" />
+          <input class="bg-light m-2 form-control rounded" type="password" placeholder="password" />
         </div>
       </div>
-        <button type="submit">Login</button>
-        <button type="submit">Create</button>
+        <button class="btn btn-light mx-auto d-block my-2" type="submit">Login</button>
+        <button class="btn btn-light mx-auto d-block my-2 mb-4" type="submit">Create</button>
       </form>
     </main>
 
-    <footer>
-      <hr />
-      <span class="text-reset">Made by Reed Zitting</span>
-      <br />
-      <a href="https://github.com/Reedzit/startup">GitHub</a>
+    <footer class="d-flex bg-secondary justify-content-center align-items-center">
+      <div class="text-dark text-center">Made by Reed Zitting <a href="https://github.com/Reedzit/startup">GitHub</a></div>
     </footer>
   </body>
 </html>

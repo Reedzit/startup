@@ -45,4 +45,7 @@ The backend will randomly go through all the cards in the deck and send notifica
 - **WebSocket** will be implemented to let friends know when they are working out. This is shown with a notification ribbon at the bottom of each page. 
 
 
-
+## Startup CSS Deliverable
+- **Bootstrap**
+  - I implemented the Bootstrap framework into the html pages and styled each page with the same footers and headers. 
+  - I used a color scheme that seemed most intuitive for the Deck of Death. I used mostly light/dark greys and white. 
