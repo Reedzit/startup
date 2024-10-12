@@ -49,3 +49,4 @@ The backend will randomly go through all the cards in the deck and send notifica
 - **Bootstrap**
   - I implemented the Bootstrap framework into the html pages and styled each page with the same footers and headers. 
   - I used a color scheme that seemed most intuitive for the Deck of Death. I used mostly light/dark greys and white. 
+  - I formatted the spacing of the text and images using bootstrap commands and also separate css files for each page to allow for any specific updates in the future. 
