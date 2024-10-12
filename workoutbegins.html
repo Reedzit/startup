@@ -12,61 +12,73 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
-    <title class="navbar-brand">Deck of Death</title>
+    <link rel="stylesheet" href="main.css">
   </head>
-  <body class="bg-dark text-light">
-    <header class="bg-secondary text-light p-2">
-      <nav class="navbar navbar-expand-lg">
-        <h1 class="navbar-brand"><a class="nav-link" href="https://github.com/Reedzit/startup">Deck of Death</a></h1>
-        <menu class="nav-link">
-          <table class="text-dark">
-          <td><a class="nav-link active mx-2" href="index.html">Home</a></td>
-          <td><a class="nav-link mx-2" href="newworkout.html">Begin New Workout</a></td>
-          <td><a class="nav-link mx-2" href="history.html">Workout History</a></td>
-          <td><a class="nav-link mx-2" href="friends.html">Friends</a></td>
-          <td><a class="nav-link mx-2" href="about.html">About</a></td>
-          </table>
-        </menu>
-      </nav>
-      <div class=" text-end"> User will go here</div>
+  <body class="d-flex">
+    <header class=" d-flex bg-secondary px-2">
+      <nav class="navbar navbar-expand-lg w-100">
+        <h1 class="navbar-brand">
+          <a class="nav-link" href="https://github.com/Reedzit/startup">Deck of Death</a>
+        </h1>
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="newworkout.html">Begin New Workout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="history.html">Workout History</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="friends.html">Friends</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="about.html">About</a>
+          </li>
+        </ul>
+        <div class="text-light">
+          User will go here
+        </div>
+      </nav> 
     </header>
 
-    <main>
-      <h1>Destroy the Deck of Death</h1>
-      <div>Will implement 3rd party service to generate images of the cards to match the theme like this.</div>
+    <main class="container-fluid flex-grow-1 bg-dark">
+      <h1 class="container-fluid text-center text-secondary mt-2">Destroy the Deck of Death</h1>
+      <!-- <div>Will implement 3rd party service to generate images of the cards to match the theme like this.</div> -->
       <img src="images/cards/kingspades.png" alt="kingspades" >
-      <h2>13 Pushups</h2>
-        <button type="previousCard">Previous</button>
-        <button type="nextCard">Next</button>
+      <h2 class="text-secondary mt-3 mb-3">13 Pushups</h2>
+      <div class="d-flex flex-row justify-content-center align-items-center">
+        <button class="btn btn-light mx-2 mb-3" type="previousCard">Previous</button>
+        <button class="btn btn-light mx-2 mb-3" type="nextCard">Next</button>
+      </div>
       </form>
-      <div class="stop watch">
-        <h2>Stop Watch</h2>
-        <div id="time">
-          <span class="digit" id="hr">
+      <div class="d-flex align-items-center">
+        <h2 class="text-secondary text-center">Stop Watch</h2>
+        <div class="d-flex flex-row justify-content-center align-items-center text-secondary" id="time">
+          <div class=" me-2" id="hr">
             00
-          </span>
-          <span class="txt">Hr</span>
-          <span class="digit" id="min">00</span>
-          <span class="txt">Min</span>
-          <span class="digit" id="sec">00</span>
-          <span class="txt">Sec</span>
+          </div>
+          <div class=" col me-2">Hr</div>
+          <div class="col me-1" id="min">00</div>
+          <div class="col me-2">Min</div>
+          <div class="col me-1" id="sec">00</div>
+          <div class="col me-2">Sec</div>
         </div>
-        <div id="buttons">
-          <button class="btn" id="start">Start</button>
-          <button class="btn" id="stop">Stop</button>
+        <div class="d-flex flex-row justify-content-center align-items-center" id="buttons">
+          <button class="btn btn-light my-4 mx-2" id="start">Start</button>
+          <button class="btn btn-light my-4 mx-2 " id="stop">Stop</button>
         </div>
-        <div>
-          <h2>Notifications</h2>
-          <span>Billy has just began a workout!</span>
+      </div>
+        <div class="d-block text-secondary">
+          <h3 class="align-self-start">Notifications</h3>
+          <div class="mb-2">Billy has just began a workout!</div>
         </div>
       </div>
     </main>
 
-    <footer>
-      <hr />
-      <span class="text-reset">Made by Reed Zitting</span>
-      <br />
-      <a href="https://github.com/Reedzit/startup">GitHub</a>
+    <footer class="d-flex bg-secondary justify-content-center align-items-center">
+      <div class="text-dark text-center">Made by Reed Zitting <a href="https://github.com/Reedzit/startup">GitHub</a></div>
     </footer>
   </body>
 </html>
