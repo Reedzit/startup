@@ -54,7 +54,7 @@ export default function App() {
     </Routes>
 
     <footer className="d-flex bg-secondary justify-content-center align-items-center">
-      <div className="text-dark text-center">Made by Reed Zitting <a href="https://github.com/Reedzit/startup">GitHub</a></div>
+      <div className="text-dark text-center">Made by Reed Zitting <NavLink to="https://github.com/Reedzit/startup">GitHub</NavLink></div>
     </footer>
    </div>
   </BrowserRouter>

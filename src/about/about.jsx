@@ -1,11 +1,17 @@
 import React from 'react';
 
 export function About() {
+  const [imageUrl, setImageUrl] = React.useState('');
+  
+  React.useEffect(() => {
+    setImageUrl('public/images/grimReaperQuestioningLife.png');
+  });
+
   return(
     <main className="container-fluid flex-grow-1 bg-dark text-secondary">
         <h1 className="container-fluid text-center mt-2">Why Conquer the Deck of Death?</h1>
         <div className="d-flex justify-content-center align-items-center mt-2">
-          <img src="images/grimReaperQuestioningLife.png" alt="Grim Reaper Questioning Life" width="300" height="300" />
+          <img src={imageUrl} alt="Grim Reaper Questioning Life" width="300" height="300" />
         </div>
         <div className="text-center mt-4 mb-4">
           The deck of death is a convenient yet difficult workout.

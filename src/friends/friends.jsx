@@ -2,11 +2,17 @@ import React from 'react';
 import './friends.css';
 
 export function Friends() {
+  const [imageUrl, setImageUrl] = React.useState('');
+
+  React.useEffect (() => {
+    setImageUrl('public/images/grimReaperWithFriends.png');
+  }, []);
+  
   return(
     <main className="container-fluid flex-grow-1 bg-dark text-secondary">
       <h1 className="container-fluid text-center mt-2">Conquer the Deck of Death with Friends</h1>
       <div className="d-flex justify-content-center align-items-center mt-2">
-        <img className="img-fluid" src="images/grimReaperWithFriends.png" alt="Grim Reaper With Friends" width="250" height="250" />
+        <img className="img-fluid" src={imageUrl} alt="Grim Reaper With Friends" width="250" height="250" />
       </div>
       <h2 className="d-flex justify-content-center align-items-center mt-3">Add a Friend</h2>
       <div className="justify-content-center align-self-center">

@@ -2,12 +2,18 @@ import React from 'react';
 import './workoutbegins.css';
 
 export function WorkoutBegins() {
+  const [imageUrl, setImageUrl] = React.useState('');
+
+  React.useEffect (() => {
+    setImageUrl('public/cards/kingspades.png');
+  }, []);
+
   return (
     <main className="container-fluid flex-grow-1 bg-dark">
       <h1 className="container-fluid text-center text-secondary mt-2">Destroy the Deck of Death</h1>
       {/* <div>Will implement 3rd party service to generate images of the cards to match the theme like this.</div> */}
       <div className="d-flex align-items-center justify-content-center">
-        <img className="img-fluid" src="images/cards/kingspades.png" alt="kingspades" width="500px" />
+        <img className="img-fluid" src={imageUrl} alt="kingspades" width="500px" />
       </div>
       <div className="d-flex justify-content-center align-items-center">
         <h2 className="text-secondary text-center mt-3 mb-3">13 Pushups</h2>

@@ -3,7 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import './newworkout.css';
 
 export function Newworkout() {
+  const [imageUrl, setImageUrl] = React.useState('');
   const navigate = useNavigate();
+
+  React.useEffect (() => {
+    setImageUrl('public/images/grimReaperPushups.jpg');
+  }, []);
 
   const handleBeginClick = () => {
     navigate('/workoutbegins');
@@ -13,7 +18,7 @@ export function Newworkout() {
     <main className="container-fluid flex-grow-1 bg-dark">
       <div className="">
         <h1 className="text-center text-secondary mt-4 mb-4">Begin the Deck of Death</h1>
-        <img className="mx-auto d-block" src="images/grimReaperPushUps.jpg" alt="Grim Reaper Push Ups" width="400" height="400" />
+        <img className="mx-auto d-block" src={imageUrl} alt="Grim Reaper Push Ups" width="400" height="400" />
         <h2 className="text-secondary text-center mt-4 mb-4">Choose Workout For Each Suit</h2>
       </div>
       <div className="d-flex justify-content-center align-items-center text-center text-secondary">
