@@ -5,6 +5,7 @@ import './app.css';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom'; 
 import { Login } from './login/login';
 import { Newworkout } from './newworkout/newworkout';
+import { WorkoutBegins } from './newworkout/workoutbegins';
 import { History } from './history/history';
 import { Friends } from './friends/friends';
 import { About } from './about/about';
@@ -21,7 +22,7 @@ export default function App() {
         </h1>
         <ul className="navbar-nav me-auto">
           <li className="nav-item">
-            <NavLink className="nav-link active mx-2" to=''>Home</NavLink>
+            <NavLink className="nav-link mx-2" to=''>Home</NavLink>
           </li>
           <li className="nav-item">
             <NavLink className="nav-link mx-2" to='newworkout'>Begin New Workout</NavLink>
@@ -45,6 +46,7 @@ export default function App() {
     <Routes>
       <Route path='/' element={<Login />} exact />
       <Route path='/newworkout' element={<Newworkout />} />
+      <Route path='/workoutbegins' element={<WorkoutBegins />} />
       <Route path='/history' element={<History />} />
       <Route path='/friends' element={<Friends />} />
       <Route path='/about' element={<About />} />
