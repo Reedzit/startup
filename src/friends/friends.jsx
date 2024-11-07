@@ -1,13 +1,14 @@
 import React from 'react';
 import './friends.css';
 
+
 export function Friends() {
   const [imageUrl, setImageUrl] = React.useState('');
 
   React.useEffect (() => {
-    setImageUrl('public/images/grimReaperWithFriends.png');
+    setImageUrl('/images/grimReaperWithFriends.png');
   }, []);
-  
+
   return(
     <main className="container-fluid flex-grow-1 bg-dark text-secondary">
       <h1 className="container-fluid text-center mt-2">Conquer the Deck of Death with Friends</h1>

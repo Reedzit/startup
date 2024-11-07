@@ -5,7 +5,7 @@ export function History() {
   const [imageUrl, setImageUrl] = React.useState('');
 
   React.useEffect (() => {
-    setImageUrl('public/images/grimReaperReading.png');
+    setImageUrl('/images/grimReaperReading.png');
   }, []);
   return (
     <main className="container-fluid flex-grow-1 bg-dark text-secondary">

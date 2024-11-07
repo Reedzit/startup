@@ -5,7 +5,7 @@ export function WorkoutBegins() {
   const [imageUrl, setImageUrl] = React.useState('');
 
   React.useEffect (() => {
-    setImageUrl('public/cards/kingspades.png');
+    setImageUrl('/cards/kingspades.png');
   }, []);
 
   return (

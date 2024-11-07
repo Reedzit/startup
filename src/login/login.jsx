@@ -15,7 +15,7 @@ export function Login() {
   }
 
   React.useEffect (() => {
-    setImageUrl('public/images/grimReaper.jpg');
+    setImageUrl('/images/grimReaper.jpg');
   }, []);
 
   return (

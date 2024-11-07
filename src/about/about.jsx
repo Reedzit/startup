@@ -4,7 +4,7 @@ export function About() {
   const [imageUrl, setImageUrl] = React.useState('');
   
   React.useEffect(() => {
-    setImageUrl('public/images/grimReaperQuestioningLife.png');
+    setImageUrl('/images/grimReaperQuestioningLife.png');
   });
 
   return(

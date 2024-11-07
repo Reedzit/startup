@@ -7,7 +7,7 @@ export function Newworkout() {
   const navigate = useNavigate();
 
   React.useEffect (() => {
-    setImageUrl('public/images/grimReaperPushups.jpg');
+    setImageUrl('/images/grimReaperPushUps.jpg');
   }, []);
 
   const handleBeginClick = () => {
