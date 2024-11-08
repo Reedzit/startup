@@ -52,3 +52,13 @@ The backend will randomly go through all the cards in the deck and send notifica
   - I formatted the spacing of the text and images using bootstrap commands and also separate css files for each page to allow for any specific updates in the future. 
 - **Project Changes**
   - I think I will use an API for the timer instead of generating pictures. I think it will be a bit cheaper that way and still fulfills the requirement of an outside service. 
+
+
+## Startup React Deliverable
+- **React Port**
+  - I successfully ported my application to React and bundled it using Vite.
+- **Additional Functionality**
+  - Login page now allows you to create an account and login.
+- **Changes**
+  - Changed "Home" to "Login" on the navbar. 
+  - 

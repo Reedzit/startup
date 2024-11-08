@@ -53,3 +53,8 @@ input.bg-light {
 button.btn{
   font-weight: 600;
 }
+.name {
+  color: rgb(118, 190, 210);
+  font-size: 1.5em;
+  padding: 0.5em;
+}

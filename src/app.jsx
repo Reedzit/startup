@@ -9,9 +9,14 @@ import { WorkoutBegins } from './newworkout/workoutbegins';
 import { History } from './history/history';
 import { Friends } from './friends/friends';
 import { About } from './about/about';
+import { AuthState } from './login/authState';
 
 
-export default function App() {
+function App() {
+  const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
+  const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
+  const [authState, setAuthState] = React.useState(currentAuthState);
+
   return (
   <BrowserRouter>
     <div className="body d-flex flex-column">
@@ -21,18 +26,26 @@ export default function App() {
           <NavLink className="nav-link" href="https://github.com/Reedzit/startup">Deck of Death</NavLink>
         </h1>
         <ul className="navbar-nav me-auto">
-          <li className="nav-item">
-            <NavLink className="nav-link mx-2" to=''>Home</NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link mx-2" to='newworkout'>Begin New Workout</NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link mx-2" to='history'>Workout History</NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link mx-2" to='friends'>Friends</NavLink>
-          </li>
+          {authState === AuthState.Unauthenticated && (
+            <li className="nav-item">
+              <NavLink className="nav-link mx-2" to=''>Login</NavLink>
+            </li>
+          )}
+          {authState === AuthState.Authenticated && (
+            <li className="nav-item">
+              <NavLink className="nav-link mx-2" to='newworkout'>Begin New Workout</NavLink>
+            </li>
+          )}
+          {authState === AuthState.Authenticated && (
+            <li className="nav-item">
+              <NavLink className="nav-link mx-2" to='history'>Workout History</NavLink>
+            </li>
+          )}
+          {authState === AuthState.Authenticated && (
+            <li className="nav-item">
+              <NavLink className="nav-link mx-2" to='friends'>Friends</NavLink>
+            </li>
+          )}
           <li className="nav-item">
             <NavLink className="nav-link mx-2" to='about'>About</NavLink>
           </li>
@@ -44,8 +57,21 @@ export default function App() {
     </header>
 
     <Routes>
-      <Route path='/' element={<Login />} exact />
-      <Route path='/newworkout' element={<Newworkout />} />
+      <Route 
+        path='/' 
+        element={
+          <Login
+            userName={userName}
+            authState={authState}
+            onAuthChange={(userName, authState) => {
+              setUserName(userName);
+              setAuthState(authState);
+            }}
+          />
+        }
+        exact 
+      />
+      <Route path='/newworkout' element={<Newworkout userName={userName} />} />
       <Route path='/workoutbegins' element={<WorkoutBegins />} />
       <Route path='/history' element={<History />} />
       <Route path='/friends' element={<Friends />} />
@@ -64,3 +90,5 @@ export default function App() {
 function NotFound() {
   return <main className='container-fluid bg-secondary text-center'>404: Return to sender. Address unknown.</main>;
 }
+
+export default App;
