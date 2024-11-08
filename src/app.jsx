@@ -50,9 +50,12 @@ function App() {
             <NavLink className="nav-link mx-2" to='about'>About</NavLink>
           </li>
         </ul>
-        <div className="text-light">
-          User will go here
-        </div>
+        {authState === AuthState.Authenticated && (
+          <div className="text-light">
+            <h5 className="text-light ">{userName} is logged in</h5>
+            <button className="btn btn-dark mx-5" onClick={() => setAuthState(AuthState.Unauthenticated)}>Logout</button>
+          </div>
+        )}
       </nav> 
     </header>
 

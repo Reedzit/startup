@@ -6,6 +6,7 @@ import { MessageDialog } from './messageDialog';
 export function Unauthenticated(props) {
   const [imageUrl, setImageUrl] = React.useState('');
   const [userName, setUserName] = React.useState(props.userName);
+  const [email, setEmail] = React.useState(props.email);
   const [password, setPassword] = React.useState('');
   const [displayError, setDisplayError] = React.useState(null);
 

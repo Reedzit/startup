@@ -6,7 +6,12 @@ import Button from 'react-bootstrap/Button';
 import './login.css';
 
 export function Authenticated(props) {
+  const [imageUrl, setImageUrl] = React.useState('');
   const navigate = useNavigate();
+
+  React.useEffect(() => {
+    setImageUrl('/images/grimReaper.jpg');
+  }, []); 
 
   function logout() {
     localStorage.removeItem('userName');
@@ -14,14 +19,15 @@ export function Authenticated(props) {
   }
 
   return (
-    <div>
-      <div className='name'>{props.userName}</div>
-      <Button variant='primary' onClick={() => navigate('/newworkout')}>
+    <div className='d-flex justify-content-center align-items-center'>
+      <img className='mx-auto d-block' src={imageUrl} alt='Grim Reaper' height='300px' />
+      <div className='name text-center text-light'>{props.userName} is logged in</div>
+      <button className="btn btn-light mx-auto mt-4 mb-3" variant='primary' onClick={() => navigate('/newworkout')}>
         Workout
-      </Button>
-      <Button variant='secondary' onClick={() => logout()}>
+      </button>
+      <button className="btn btn-light  mx-auto mt-4 mb-3" variant='secondary' onClick={() => logout()}>
         Logout
-      </Button>
+      </button>
     </div>
   );
 }
