@@ -26,13 +26,13 @@ export function Newworkout() {
           Workout 1 <input className="bg-light m-1 form-control rounded" type="text" placeholder="Hearts" />
         </div>
         <div>
-          Workout 2 <input className="bg-light m-1 form-control rounded" type="password" placeholder="Clubs" />
+          Workout 2 <input className="bg-light m-1 form-control rounded" type="text" placeholder="Clubs" />
         </div>
         <div>
-          Workout 3 <input className="bg-light m-1 form-control rounded" type="password" placeholder="Diamonds" />
+          Workout 3 <input className="bg-light m-1 form-control rounded" type="text" placeholder="Diamonds" />
         </div>
         <div>
-          Workout 4 <input className="bg-light m-1 form-control rounded" type="password" placeholder="Spades" />
+          Workout 4 <input className="bg-light m-1 form-control rounded" type="text" placeholder="Spades" />
         </div>
       </div>
       <div className="d-flex justify-content-center align-items-center">

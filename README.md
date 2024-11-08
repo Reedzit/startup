@@ -58,7 +58,9 @@ The backend will randomly go through all the cards in the deck and send notifica
 - **React Port**
   - I successfully ported my application to React and bundled it using Vite.
 - **Additional Functionality**
-  - Login page now allows you to create an account and login.
+  - Login page now allows you to create an account and login using React components.
+  - Name appears at the top when you are logged in. 
+  - 
 - **Changes**
   - Changed "Home" to "Login" on the navbar. 
-  - 
+  

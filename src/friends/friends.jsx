@@ -4,6 +4,15 @@ import './friends.css';
 
 export function Friends() {
   const [imageUrl, setImageUrl] = React.useState('');
+  const [friendName, setFriendName] = React.useState('');
+  const [friendList, setFriendList] = React.useState([]);
+
+  const handleAddFriend = () => {
+    if (friendName.trim() !== '') {
+      setFriendList([...friendList, friendName]);
+      setFriendName('');
+    }
+  };
 
   React.useEffect (() => {
     setImageUrl('/images/grimReaperWithFriends.png');
@@ -17,11 +26,17 @@ export function Friends() {
       </div>
       <h2 className="d-flex justify-content-center align-items-center mt-3">Add a Friend</h2>
       <div className="justify-content-center align-self-center">
-        <input className="bg-light m-2 form-control rounded" type="name" placeholder="Friend's name" />
+        <input 
+        className="bg-light m-2 form-control rounded" 
+        type="text" 
+        placeholder="Friend's name" 
+        value={friendName}
+        onChange={(e) => setFriendName(e.target.value)}
+        />
       </div>
       <div className="justify-content-center align-self-center">
-        <button className="btn btn-light mx-2" type="submit">Find</button>
-        <button className="btn btn-light mx-2" type="submit">Add</button>
+        {/* <button className="btn btn-light mx-2" type="submit">Find</button> */}
+        <button className="btn btn-light mx-2" type="submit" onClick={handleAddFriend}>Add</button>
       </div>
       <div className="mt-3">
         <h2 className="d-flex justify-content-center align-items-center">Friends List</h2>
@@ -35,20 +50,13 @@ export function Friends() {
               </tr>
             </thead>
             <tbody>
-              <tr id="friend">
-                <td className="text-secondary" id="friend name">Billy</td>
-                <td className="text-secondary" id="time"> 2 seconds</td>
-                <td className="text-secondary" id="date"> 09/27/2008</td>
-              </tr>
-              <tr id="friend">
-                <td className="text-secondary" id="friend name">Mandy</td>
-                <td className="text-secondary" id="time"> 5 seconds</td>
-                <td className="text-secondary" id="date"> 04/60/2008</td>
-              </tr>
-              <tr id="friend">
-                <td className="text-secondary" id="friend name">Grim</td>
-                <td className="text-secondary" id="time"> 12 minutes</td>
-              </tr>
+              {friendList.map((friend) => (
+                <tr id="friend">
+                  <td className="text-secondary" id="friend name">{friend}</td>
+                  <td className="text-secondary" id="time"> 5 seconds</td>
+                  <td className="text-secondary" id="date"> 04/60/2008</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
