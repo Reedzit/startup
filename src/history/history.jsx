@@ -3,9 +3,12 @@ import './history.css';
 
 export function History() {
   const [imageUrl, setImageUrl] = React.useState('');
+  const [workoutHistory, setWorkoutHistory] = React.useState([]);
 
   React.useEffect (() => {
     setImageUrl('/images/grimReaperReading.png');
+    const storedWorkouts = JSON.parse(localStorage.getItem('workoutHistory')) || [];  
+    setWorkoutHistory(storedWorkouts);
   }, []);
   return (
     <main className="container-fluid flex-grow-1 bg-dark text-secondary">
@@ -23,21 +26,13 @@ export function History() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td className="text-secondary">Workout 1</td>
-            <td className="text-secondary">2020</td>
-            <td className="text-secondary">09/27/2024</td>
-          </tr>
-          <tr>
-            <td className="text-secondary">Workout 2</td>
-            <td className="text-secondary">200</td>
-            <td className="text-secondary">09/01/2024</td>
-          </tr>
-          <tr>
-            <td className="text-secondary">Workout 3</td>
-            <td className="text-secondary">3456</td>
-            <td className="text-secondary">04/27/2024</td>
-          </tr>
+          {workoutHistory.map((workout, index) => (
+            <tr key={index}>
+              <td className="text-secondary">{`${workout.heartExercise}, ${workout.clubExercise}, ${workout.diamondExercise}, ${workout.spadeExercise}`}</td>
+              <td className="text-secondary">{workout.time}</td>
+              <td className="text-secondary">{workout.date}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
       <div className="d-flex text-secondary">

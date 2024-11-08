@@ -16,6 +16,10 @@ export function Friends() {
 
   React.useEffect (() => {
     setImageUrl('/images/grimReaperWithFriends.png');
+    const storedFriends = localStorage.getItem('friendList');
+    if (storedFriends) {
+      setFriendList(JSON.parse(storedFriends));
+    } 
   }, []);
 
   return(

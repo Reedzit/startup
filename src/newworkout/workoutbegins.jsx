@@ -1,8 +1,11 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom'; 
 import './workoutbegins.css';
 
 export function WorkoutBegins() {
   const [imageUrl, setImageUrl] = React.useState('');
+  const location = useLocation();
+  const workout = location.state?.workout;
 
   React.useEffect (() => {
     setImageUrl('/cards/kingspades.png');
@@ -16,7 +19,7 @@ export function WorkoutBegins() {
         <img className="img-fluid" src={imageUrl} alt="kingspades" width="500px" />
       </div>
       <div className="d-flex justify-content-center align-items-center">
-        <h2 className="text-secondary text-center mt-3 mb-3">13 Pushups</h2>
+        <h2 className="text-secondary text-center mt-3 mb-3">13 {workout ? `${workout.spadeExercise}`: 'No workout data'}</h2>
         <div className="d-flex flex-row justify-content-center align-items-center">
           <button className="btn btn-light mx-2 mb-3" type="button">Previous</button>
           <button className="btn btn-light mx-2 mb-3" type="button">Next</button>
