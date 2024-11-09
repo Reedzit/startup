@@ -55,13 +55,19 @@ The backend will randomly go through all the cards in the deck and send notifica
 
 
 ## Startup React Deliverable
-- **React Port**
+- **React Port using Vite**
   - I successfully ported my application to React and bundled it using Vite.
-- **Additional Functionality**
+- **React Components**
   - Login page now allows you to create an account and login using React components.
   - Name appears at the top when you are logged in. 
-  - Created a workout class that stores data. This data is then saved in history. 
-  - Friends are able to be added. Where you can see best time and latest workout date placeholders. 
+  - You can now create and begin a workout and you can see how many you need to do. This mocks the functionality of going through each card in the deck.
+  - Created a workout class that stores data. This data is then persistently saved in history once the workout begins. 
+  - Friends are able to be added. You can see best time and latest workout date placeholders. These are saved persistently.
+  - The about page is ported to a jsx file implementing React hooks.
+- **React Router**
+  - The app.jsx file uses the React Router to navigate to different pages using the navbar tool.
+- **React Hooks**
+  - Most of the files uses the useEffect hook as well as useNavigate and useState.
 - **Changes**
   - Changed "Home" to "Login" on the navbar. 
   

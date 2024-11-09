@@ -16,13 +16,12 @@ export function Friends({userName}) {
     }
   };
 
-  React.useEffect (() => {
+  React.useEffect(() => {
     setImageUrl('/images/grimReaperWithFriends.png');
-    const storedFriends = localStorage.getItem('friendList');
-    if (storedFriends) {
-      setFriendList(JSON.parse(storedFriends));
-    } 
-  }, []);
+    // Retrieve friends from localStorage for the current user
+    const storedFriends = JSON.parse(localStorage.getItem(`friendList_${userName}`)) || [];
+    setFriendList(storedFriends);
+  }, [userName]);
 
   return(
     <main className="container-fluid flex-grow-1 bg-dark text-secondary">
