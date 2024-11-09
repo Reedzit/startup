@@ -2,14 +2,16 @@ import React from 'react';
 import './friends.css';
 
 
-export function Friends() {
+export function Friends({userName}) {
   const [imageUrl, setImageUrl] = React.useState('');
   const [friendName, setFriendName] = React.useState('');
   const [friendList, setFriendList] = React.useState([]);
 
   const handleAddFriend = () => {
     if (friendName.trim() !== '') {
-      setFriendList([...friendList, friendName]);
+      const updatedFriendList = [...friendList, friendName];
+      setFriendList(updatedFriendList);
+      localStorage.setItem(`friendList_${userName}`, JSON.stringify(updatedFriendList));
       setFriendName('');
     }
   };
@@ -54,11 +56,11 @@ export function Friends() {
               </tr>
             </thead>
             <tbody>
-              {friendList.map((friend) => (
-                <tr id="friend">
-                  <td className="text-secondary" id="friend name">{friend}</td>
-                  <td className="text-secondary" id="time"> 5 seconds</td>
-                  <td className="text-secondary" id="date"> 04/60/2008</td>
+              {friendList.map((friend, index) => (
+                <tr key={index}>
+                  <td className="text-secondary">{friend}</td>
+                  <td className="text-secondary">{'NA'}</td>
+                  <td className="text-secondary">{'NA'}</td>
                 </tr>
               ))}
             </tbody>

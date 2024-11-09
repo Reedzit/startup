@@ -1,15 +1,16 @@
 import React from 'react';
+import {useEffect, useState} from 'react';
 import './history.css';
 
-export function History() {
+export function History({userName}) {
   const [imageUrl, setImageUrl] = React.useState('');
   const [workoutHistory, setWorkoutHistory] = React.useState([]);
 
   React.useEffect (() => {
     setImageUrl('/images/grimReaperReading.png');
-    const storedWorkouts = JSON.parse(localStorage.getItem('workoutHistory')) || [];  
+    const storedWorkouts = JSON.parse(localStorage.getItem(`workoutHistory_${userName}`)) || [];
     setWorkoutHistory(storedWorkouts);
-  }, []);
+  }, [userName]);
   return (
     <main className="container-fluid flex-grow-1 bg-dark text-secondary">
       <h1 className="container-fluid text-center mt-2 mb-2">Review Your Decks of Death</h1>

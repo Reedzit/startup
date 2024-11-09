@@ -60,7 +60,8 @@ The backend will randomly go through all the cards in the deck and send notifica
 - **Additional Functionality**
   - Login page now allows you to create an account and login using React components.
   - Name appears at the top when you are logged in. 
-  - 
+  - Created a workout class that stores data. This data is then saved in history. 
+  - Friends are able to be added. Where you can see best time and latest workout date placeholders. 
 - **Changes**
   - Changed "Home" to "Login" on the navbar. 
   

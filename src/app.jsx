@@ -75,9 +75,9 @@ function App() {
         exact 
       />
       <Route path='/newworkout' element={<Newworkout userName={userName} />} />
-      <Route path='/workoutbegins' element={<WorkoutBegins />} />
-      <Route path='/history' element={<History />} />
-      <Route path='/friends' element={<Friends />} />
+      <Route path='/workoutbegins' element={<WorkoutBegins userName={userName} />} />
+      <Route path='/history' element={<History userName={userName}/>} />
+      <Route path='/friends' element={<Friends userName={userName}/>} />
       <Route path='/about' element={<About />} />
       <Route path='*' element={<NotFound />} />
     </Routes>

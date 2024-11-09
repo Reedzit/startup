@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './newworkout.css';
 import Workout from './workout';
 
-export function Newworkout() {
+export function Newworkout({userName}) {
   const [imageUrl, setImageUrl] = useState('');
   const [heartExercise, setHeartExercise] = useState('');
   const [clubExercise, setClubExercise] = useState('');
@@ -18,9 +18,9 @@ export function Newworkout() {
   const handleBeginClick = () => {
     const workout = new Workout(heartExercise, clubExercise, diamondExercise, spadeExercise);
     console.log(workout); // You can use this object as needed
-    const existingWorkouts = JSON.parse(localStorage.getItem('workoutHistory')) || [];
+    const existingWorkouts = JSON.parse(localStorage.getItem(`workoutHistory_${userName}`)) || [];
     const updatedWorkouts = [...existingWorkouts, workout];
-    localStorage.setItem('workoutHistory', JSON.stringify(updatedWorkouts));
+    localStorage.setItem(`workoutHistory_${userName}`, JSON.stringify(updatedWorkouts));
 
     navigate('/workoutbegins', { state: {workout}});
   };
