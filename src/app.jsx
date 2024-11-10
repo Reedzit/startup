@@ -10,6 +10,7 @@ import { History } from './history/history';
 import { Friends } from './friends/friends';
 import { About } from './about/about';
 import { AuthState } from './login/authState';
+import { useNavigate } from 'react-router-dom';
 
 
 function App() {
@@ -53,7 +54,11 @@ function App() {
         {authState === AuthState.Authenticated && (
           <div className="text-light">
             <h5 className="text-light ">{userName} is logged in</h5>
-            <button className="btn btn-dark mx-5" onClick={() => setAuthState(AuthState.Unauthenticated)}>Logout</button>
+            <button className="btn btn-dark mx-5" onClick={() => {
+              setAuthState(AuthState.Unauthenticated);
+              setUserName('');
+              navigate('/');
+              }}>Logout</button>
           </div>
         )}
       </nav> 

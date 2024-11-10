@@ -33,6 +33,7 @@ export function Login({ userName, authState, onAuthChange }) {
             userName={userName}
             onLogin={(loginUserName) => {
               onAuthChange(loginUserName, AuthState.Authenticated);
+              localStorage.setItem('userName', loginUserName);
             }}
           />
         )}

@@ -34,15 +34,9 @@ export function Unauthenticated(props) {
             <input 
             className="bg-light m-2 form-control rounded" 
             type="text" 
-            placeholder="first name"
+            placeholder="username"
             value={userName}
             onChange={(e) => setUserName(e.target.value)} />
-          </div>
-          <div>
-            <input 
-            className="bg-light m-2 form-control rounded" 
-            type="text" 
-            placeholder="last name" />
           </div>
           <div>
             <input 
