@@ -26,7 +26,7 @@ export function Unauthenticated(props) {
 
   return (
     <>
-      <img className="mx-auto d-block" src= {imageUrl} alt="Grim Reaper" height="300px" />
+      <img className="mx-auto mt-4 d-block" src= {imageUrl} alt="Grim Reaper" height="300px" />
 
         <h2 className="text-secondary text-center m-2">Login to Begin</h2>
         <div className="d-flex flex-column align-items-center">
