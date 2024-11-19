@@ -71,3 +71,6 @@ The backend will randomly go through all the cards in the deck and send notifica
 - **Changes**
   - Changed "Home" to "Login" on the navbar. 
   
+## Startup Service Deliverable
+- **Service**
+  - I have developed and integrated a backend with the frontend. 
