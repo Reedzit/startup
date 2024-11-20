@@ -9,8 +9,8 @@ import { WorkoutBegins } from './newworkout/workoutbegins';
 import { History } from './history/history';
 import { Friends } from './friends/friends';
 import { About } from './about/about';
-import { AuthState } from './login/authState';
-import { useNavigate } from 'react-router-dom';
+import { AuthState } from './login/authState'
+import { Authenticated } from './login/authenticated';
 
 
 function App() {
@@ -34,6 +34,11 @@ function App() {
           )}
           {authState === AuthState.Authenticated && (
             <li className="nav-item">
+              <NavLink className="nav-link mx-2" to='authenticated'>Home</NavLink>
+              </li>
+            )}
+          {authState === AuthState.Authenticated && (
+            <li className="nav-item">
               <NavLink className="nav-link mx-2" to='newworkout'>Begin New Workout</NavLink>
             </li>
           )}
@@ -54,11 +59,6 @@ function App() {
         {authState === AuthState.Authenticated && (
           <div className="text-light">
             <h5 className="text-light ">{userName} is logged in</h5>
-            <button className="btn btn-dark mx-5" onClick={() => {
-              setAuthState(AuthState.Unauthenticated);
-              setUserName('');
-              navigate('/');
-              }}>Logout</button>
           </div>
         )}
       </nav> 
@@ -84,6 +84,7 @@ function App() {
       <Route path='/history' element={<History userName={userName}/>} />
       <Route path='/friends' element={<Friends userName={userName}/>} />
       <Route path='/about' element={<About />} />
+      <Route path='/authenticated' element={<Authenticated userName={userName} />} />
       <Route path='*' element={<NotFound />} />
     </Routes>
 

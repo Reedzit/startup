@@ -26,14 +26,14 @@ export function Login({ userName, authState, onAuthChange }) {
     <main className="container-fluid flex-grow-1 bg-dark">
       <div>
         {authState === AuthState.Authenticated && <h1 className="text-center text-secondary mt-4">Conquer the Deck of Death</h1>}
-        {authState === AuthState.Authenticated && ( <Authenticated userName={userName} onLogout={() => onAuthChange(userName, AuthState.Unauthenticated)} />
+        {authState === AuthState.Authenticated && (
+          <Authenticated userName={userName} onLogout={() => onAuthChange(userName, AuthState.Unauthenticated)} />
         )}
         {authState === AuthState.Unauthenticated && (
           <Unauthenticated
             userName={userName}
             onLogin={(loginUserName) => {
               onAuthChange(loginUserName, AuthState.Authenticated);
-              localStorage.setItem('userName', loginUserName);
             }}
           />
         )}
