@@ -4,7 +4,7 @@ class Workout {
     this.clubExercise = clubExercise;
     this.diamondExercise = diamondExercise;
     this.spadeExercise = spadeExercise;
-    this.time;
+    this.time = 'NA';
     this.date = this.getCurrentDate();
   }
   getCurrentDate() {

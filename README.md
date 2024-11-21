@@ -73,4 +73,11 @@ The backend will randomly go through all the cards in the deck and send notifica
   
 ## Startup Service Deliverable
 - **Service**
-  - I have developed and integrated a backend with the frontend. 
+  - HTTP service using Node.js and Express was implemented. 
+  - Front end is served up using Express. 
+  - My workoutbegins page calls the third party deck of cards service https://deckofcardsapi.com/
+  - Backend provides service endpoints for the workouts and users. 
+  - Frontend calls those service endpoints. 
+- **Changes**
+  - I changed "Login" back to "Home" in the navbar. 
+  - I decided to switch to a deck of cards for my third party api. It includes a photo of each card as well for ease of use. 

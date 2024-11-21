@@ -15,14 +15,24 @@ export function Newworkout({userName}) {
     setImageUrl('/images/grimReaperPushUps.jpg');
   }, []);
 
-  const handleBeginClick = () => {
-    const workout = new Workout(heartExercise, clubExercise, diamondExercise, spadeExercise);
-    console.log(workout); // You can use this object as needed
-    const existingWorkouts = JSON.parse(localStorage.getItem(`workoutHistory_${userName}`)) || [];
-    const updatedWorkouts = [...existingWorkouts, workout];
-    localStorage.setItem(`workoutHistory_${userName}`, JSON.stringify(updatedWorkouts));
+  const handleBeginClick = async () => {
+    let workoutObj = new Workout(heartExercise, clubExercise, diamondExercise, spadeExercise);
+    const workout = JSON.stringify(workoutObj);
+    localStorage.setItem('currentWorkout', workout);
+    console.log(workout);
+    const response = await fetch('api/workout/create', {
+      method: 'post',
+      body: JSON.stringify({ userName, workout }),
+      headers: {
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+    });
 
-    navigate('/workoutbegins', { state: {workout}});
+    if (response.ok) {
+      navigate('/workoutbegins', { state: { workout: workoutObj } });
+    } else {
+      console.error('Failed to save workout');
+    }
   };
 
   return (

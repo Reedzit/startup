@@ -1,46 +1,65 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './friends.css';
 
+export function Friends({ userName }) {
+  const [friendName, setFriendName] = useState('');
+  const [friendList, setFriendList] = useState([]);
+  const imageUrl = '/images/grimReaperWithFriends.png';
 
-export function Friends({userName}) {
-  const [imageUrl, setImageUrl] = React.useState('');
-  const [friendName, setFriendName] = React.useState('');
-  const [friendList, setFriendList] = React.useState([]);
-
-  const handleAddFriend = () => {
-    if (friendName.trim() !== '') {
-      const updatedFriendList = [...friendList, friendName];
-      setFriendList(updatedFriendList);
-      localStorage.setItem(`friendList_${userName}`, JSON.stringify(updatedFriendList));
-      setFriendName('');
+  const fetchFriends = async () => {
+    try {
+      const response = await fetch(`api/friends/${userName}`);
+      if (response.ok) {
+        const data = await response.json();
+        setFriendList(data);
+      } else {
+        console.error('Failed to fetch friends list');
+      }
+    } catch (error) {
+      console.error('Error fetching friends list:', error);
     }
   };
 
-  React.useEffect(() => {
-    setImageUrl('/images/grimReaperWithFriends.png');
-    // Retrieve friends from localStorage for the current user
-    const storedFriends = JSON.parse(localStorage.getItem(`friendList_${userName}`)) || [];
-    setFriendList(storedFriends);
+  useEffect(() => {
+    fetchFriends();
   }, [userName]);
 
-  return(
+  const handleAddFriend = async () => {
+    try {
+      const response = await fetch('api/friends', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ userName, friendName }),
+      });
+
+      if (response.ok) {
+        fetchFriends();
+        setFriendName('');
+      } else {
+        console.error('Failed to add friend');
+      }
+    } catch (error) {
+      console.error('Error adding friend:', error);
+    }
+  };
+
+  return (
     <main className="container-fluid flex-grow-1 bg-dark text-secondary">
       <h1 className="container-fluid text-center mt-2">Conquer the Deck of Death with Friends</h1>
       <div className="d-flex justify-content-center align-items-center mt-2">
         <img className="img-fluid" src={imageUrl} alt="Grim Reaper With Friends" width="250" height="250" />
-      </div>
-      <h2 className="d-flex justify-content-center align-items-center mt-3">Add a Friend</h2>
-      <div className="justify-content-center align-self-center">
-        <input 
-        className="bg-light m-2 form-control rounded" 
-        type="text" 
-        placeholder="Friend's name" 
-        value={friendName}
-        onChange={(e) => setFriendName(e.target.value)}
+      </div>      <div className="justify-content-center align-self-center">
+        <input
+          className="bg-light m-2 form-control rounded"
+          type="text"
+          placeholder="Friend's name"
+          value={friendName}
+          onChange={(e) => setFriendName(e.target.value)}
         />
       </div>
       <div className="justify-content-center align-self-center">
-        {/* <button className="btn btn-light mx-2" type="submit">Find</button> */}
         <button className="btn btn-light mx-2" type="submit" onClick={handleAddFriend}>Add</button>
       </div>
       <div className="mt-3">
@@ -50,16 +69,16 @@ export function Friends({userName}) {
             <thead>
               <tr>
                 <th>Friend</th>
-                <th>Best Time</th>
+                <th>Most Recent Time</th>
                 <th>Last Workout Date</th>
               </tr>
             </thead>
             <tbody>
               {friendList.map((friend, index) => (
                 <tr key={index}>
-                  <td className="text-secondary">{friend}</td>
-                  <td className="text-secondary">{'NA'}</td>
-                  <td className="text-secondary">{'NA'}</td>
+                  <td className="text-secondary">{friend.friendName}</td>
+                  <td className="text-secondary">{friend.lastWorkoutTime}</td>
+                  <td className="text-secondary">{friend.lastWorkoutDate}</td>
                 </tr>
               ))}
             </tbody>

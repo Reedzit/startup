@@ -1,16 +1,29 @@
-import React from 'react';
-import {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import './history.css';
 
-export function History({userName}) {
-  const [imageUrl, setImageUrl] = React.useState('');
-  const [workoutHistory, setWorkoutHistory] = React.useState([]);
+export function History({ userName }) {
+  const [imageUrl, setImageUrl] = useState('');
+  const [workoutHistory, setWorkoutHistory] = useState([]);
 
-  React.useEffect (() => {
+  useEffect(() => {
     setImageUrl('/images/grimReaperReading.png');
-    const storedWorkouts = JSON.parse(localStorage.getItem(`workoutHistory_${userName}`)) || [];
-    setWorkoutHistory(storedWorkouts);
+    const fetchWorkoutHistory = async () => {
+      try {
+        const response = await fetch(`api/workouts/${userName}`);
+        if (response.ok) {
+          const data = await response.json();
+          setWorkoutHistory(data);
+        } else {
+          console.error('Failed to fetch workout history');
+        }
+      } catch (error) {
+        console.error('Error fetching workout history:', error);
+      }
+    };
+
+    fetchWorkoutHistory();
   }, [userName]);
+
   return (
     <main className="container-fluid flex-grow-1 bg-dark text-secondary">
       <h1 className="container-fluid text-center mt-2 mb-2">Review Your Decks of Death</h1>
@@ -22,7 +35,7 @@ export function History({userName}) {
         <thead>
           <tr className="text-secondary">
             <th scope="col">Workout Combination</th>
-            <th scope="col">Time (minutes)</th>
+            <th scope="col">Time (minutes:seconds)</th>
             <th scope="col">Date</th>
           </tr>
         </thead>
