@@ -81,3 +81,14 @@ The backend will randomly go through all the cards in the deck and send notifica
 - **Changes**
   - I changed "Login" back to "Home" in the navbar. 
   - I decided to switch to a deck of cards for my third party api. It includes a photo of each card as well for ease of use. 
+
+## Startup Login Deliverable
+- **MongoDB**
+  - MongoDB was implemented to the web application. 
+  - Encryption was used for safe password storage.
+- **Login**
+  - Application now supports new user registration 
+  - Supports existing user authentication
+  - Stores application data in MongoDB
+  - Stores and retrieves credentials in MongoDB
+  - Restricts application functionality based on authentication. 

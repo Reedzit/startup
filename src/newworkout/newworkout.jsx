@@ -29,6 +29,8 @@ export function Newworkout({userName}) {
     });
 
     if (response.ok) {
+      const responseData = await response.json();
+      localStorage.setItem('currentWorkoutId', responseData.workoutId);
       navigate('/workoutbegins', { state: { workout: workoutObj } });
     } else {
       console.error('Failed to save workout');

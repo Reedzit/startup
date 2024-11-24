@@ -84,7 +84,7 @@ function App() {
       <Route path='/history' element={<History userName={userName}/>} />
       <Route path='/friends' element={<Friends userName={userName}/>} />
       <Route path='/about' element={<About />} />
-      <Route path='/authenticated' element={<Authenticated userName={userName} />} />
+      <Route path='/authenticated' element={<Authenticated userName={userName} onLogout={() => onAuthChange(userName, AuthState.Unauthenticated)} />} />
       <Route path='*' element={<NotFound />} />
     </Routes>
 

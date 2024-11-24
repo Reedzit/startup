@@ -70,7 +70,7 @@ export function WorkoutBegins() {
     try {
       const response = await fetch('api/workout/finish', {
         method: 'PUT',
-        body: JSON.stringify({ userName: localStorage.getItem('userName'), workout: workout, time: `${minutes}:${seconds}` }),
+        body: JSON.stringify({ userName: localStorage.getItem('userName'), workoutId: localStorage.getItem('currentWorkoutId'), time: `${minutes}:${seconds}` }),
         headers: {
           'Content-Type': 'application/json; charset=UTF-8',
         },
@@ -79,6 +79,7 @@ export function WorkoutBegins() {
       if (response.ok) {
         console.log('Workout finished');
         localStorage.removeItem('currentWorkout');
+        localStorage.removeItem('currentWorkoutId');
         navigate('/');
       } else {
         console.error('Failed to finish workout');
