@@ -46,6 +46,7 @@ apiRouter.post('/auth/create', async (req, res) => {
 // GetAuth login an existing user
 apiRouter.post('/auth/login', async (req, res) => {
   const user = await DB.getUser(req.body.userName);
+  console.log('User:', user);
   if (user) {
     const isPasswordValid = await bcrypt.compare(req.body.password, user.password);
     if (isPasswordValid) {
@@ -109,11 +110,12 @@ secureApiRouter.post('/friends', async (req, res) => {
     res.status(404).send({ msg: 'Friend not found' });
     return;
   }
-  const dbFriend = await DB.addFriend(userName, friend);
-  if (dbFriend) {
+  const added = await DB.addFriend(userName, friend);
+  console.log('Added:', added);
+  if (added) {
     res.send({ msg: 'Friend added' });
   } else {
-    res.status(404).send({ msg: 'Friend not added' });
+    res.status(404).send({ msg: 'Friend already added' });
   }
 });
 

@@ -11,7 +11,7 @@ export function About() {
 
   return(
     <main className="container-fluid flex-grow-1 bg-dark text-secondary">
-        <h1 className="container-fluid text-center mt-2">Why Conquer the Deck of Death?</h1>
+        <h1 className="text-center mt-2">Why Conquer the Deck of Death?</h1>
         <div className="d-flex justify-content-center align-items-center mt-2">
           <img src={imageUrl} alt="Grim Reaper Questioning Life" width="300" height="300" />
         </div>

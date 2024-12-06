@@ -26,7 +26,7 @@ export function History({ userName }) {
 
   return (
     <main className="container-fluid flex-grow-1 bg-dark text-secondary">
-      <h1 className="container-fluid text-center mt-2 mb-2">Review Your Decks of Death</h1>
+      <h1 className="text-center mt-2 mb-2">Review Your Decks of Death</h1>
       <div className="d-flex justify-content-center align-items-center">
         <img className="img-fluid" src={imageUrl} alt="Grim Reaper Reading" width="500" height="500" />
       </div>

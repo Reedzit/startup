@@ -47,7 +47,7 @@ export function Friends({ userName }) {
 
   return (
     <main className="container-fluid flex-grow-1 bg-dark text-secondary">
-      <h1 className="container-fluid text-center mt-2">Conquer the Deck of Death with Friends</h1>
+      <h1 className="text-center mt-2">Conquer the Deck of Death with Friends</h1>
       <div className="d-flex justify-content-center align-items-center mt-2">
         <img className="img-fluid" src={imageUrl} alt="Grim Reaper With Friends" width="250" height="250" />
       </div>      <div className="justify-content-center align-self-center">

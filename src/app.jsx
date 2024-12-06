@@ -18,6 +18,11 @@ function App() {
   const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
   const [authState, setAuthState] = React.useState(currentAuthState);
 
+  const handleAuthChange = (userName, newAuthState) => {
+    setUserName(userName);
+    setAuthState(newAuthState);
+  };
+
   return (
   <BrowserRouter>
     <div className="body d-flex flex-column">
@@ -71,10 +76,7 @@ function App() {
           <Login
             userName={userName}
             authState={authState}
-            onAuthChange={(userName, authState) => {
-              setUserName(userName);
-              setAuthState(authState);
-            }}
+            onAuthChange={handleAuthChange}
           />
         }
         exact 
@@ -84,7 +86,7 @@ function App() {
       <Route path='/history' element={<History userName={userName}/>} />
       <Route path='/friends' element={<Friends userName={userName}/>} />
       <Route path='/about' element={<About />} />
-      <Route path='/authenticated' element={<Authenticated userName={userName} onLogout={() => onAuthChange(userName, AuthState.Unauthenticated)} />} />
+      <Route path='/authenticated' element={<Authenticated userName={userName} onLogout={() => handleAuthChange(userName, AuthState.Unauthenticated)} />} />
       <Route path='*' element={<NotFound />} />
     </Routes>
 

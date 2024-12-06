@@ -28,6 +28,7 @@ export function Login({ userName, authState, onAuthChange }) {
         {authState === AuthState.Authenticated && <h1 className="text-center text-secondary mt-4">Conquer the Deck of Death</h1>}
         {authState === AuthState.Authenticated && (
           <Authenticated userName={userName} onLogout={() => onAuthChange(userName, AuthState.Unauthenticated)} />
+          // <Authenticated userName={userName} onAuthChange={onAuthChange} />
         )}
         {authState === AuthState.Unauthenticated && (
           <Unauthenticated

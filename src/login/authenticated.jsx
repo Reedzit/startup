@@ -35,7 +35,7 @@ export function Authenticated(props) {
   }
 
   return (
-    <div className='bg-dark d-flex justify-content-center align-items-center'>
+    <div className=' container-fluid bg-dark d-flex justify-content-center align-items-center'>
       <img className='mx-auto d-block' src={imageUrl} alt='Grim Reaper' height='300px' />
       <div className='name text-center text-light'>{props.userName} is logged in</div>
       <button className="btn btn-light mx-auto mt-4 mb-3" variant='primary' onClick={() => navigate('/newworkout')}>

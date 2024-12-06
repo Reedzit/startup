@@ -4,8 +4,7 @@ const uuid = require('uuid');
 const config = require('./dbConfig.json');
 
 const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
-const client = new MongoClient(url);
-const db = client.db('startup');
+const client = new MongoClient(url, { tls: true, serverSelectionTimeoutMS: 3000, autoSelectFamily: false, });const db = client.db('startup');
 const userCollection = db.collection('user');
 const workoutsCollection = db.collection('workouts');
 const friendsCollection = db.collection('friends');
@@ -21,9 +20,12 @@ const friendsCollection = db.collection('friends');
 
 async function getUser(username) {
   console.log('Looking for user:', username);
-  const result = await userCollection.findOne({ username: username }, { projection: {username: 1, email: 1} });
+  const result = await userCollection.findOne({ username: username}, { projection: {username: 1, email: 1, password: 1} });
   console.log('User:', result);
-  return result.username;
+  if (!result) {
+    return null;
+  }
+  return result;
 }
 
 function getUserByToken(token) {
@@ -52,10 +54,11 @@ async function updateUserToken(email, token) {
 }
 
 async function addFriend(username, friend) {
-  const result = friendsCollection.updateOne(
+  const result = await friendsCollection.updateOne(
     { username: username },
     { $addToSet: { friends: friend } } // Add friend to the friends array if not already present
   );
+  return result;
 }
 
 async function getFriends(username) {
