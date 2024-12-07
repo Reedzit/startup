@@ -61,10 +61,6 @@ export function Newworkout({userName}) {
       <div className="d-flex justify-content-center align-items-center">
         <button className="btn btn-light mt-4 mb-3" type="button" onClick={handleBeginClick}>Begin</button>
       </div>
-      <div className="d-flex text-secondary">
-        <h3 className="align-self-start">Notifications</h3>
-        <div className="mb-2">Billy has just began a workout!</div>
-      </div>
     </main>
   );
 }
