@@ -49,10 +49,6 @@ export function History({ userName }) {
           ))}
         </tbody>
       </table>
-      <div className="d-flex text-secondary">
-        <h3 className="align-self-start">Notifications</h3>
-        <div className="mb-2">Billy has just began a workout!</div>
-      </div>
     </main>
   );
 }

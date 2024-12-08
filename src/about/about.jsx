@@ -18,10 +18,6 @@ export function About() {
         <div className="text-center mt-4 mb-4">
           {aboutInfo}
         </div>
-        <div className="d-flex text-secondary">
-          <h3 className="align-self-start">Notifications</h3>
-          <div className="mb-2">Billy has just began a workout!</div>
-        </div>
     </main>
   );
 }

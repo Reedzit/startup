@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './workoutbegins.css';
+import { WorkoutEvent, WorkoutNotifier } from './workoutNotifier';
+
 
 export function WorkoutBegins() {
   const [deckId, setDeckId] = useState('');
@@ -9,10 +11,44 @@ export function WorkoutBegins() {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
+  const [events, setEvent] = React.useState([]);
   const timerRef = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
   const workout = location.state?.workout;
+  const userName = localStorage.getItem('userName');
+
+  React.useEffect(() => {
+    WorkoutNotifier.addHandler(handleWorkoutEvent);
+    return () => {
+      WorkoutNotifier.removeHandler(handleWorkoutEvent);
+    };
+  });
+
+  function handleWorkoutEvent(event) {
+    setEvent([...events, event]);
+  }
+
+  function createMessageArray() {
+    console.log("inside createMessageArray");
+    const messageArray = [];
+    for (const [i, event] of events.entries()) {
+      let message = 'unknown';
+      if (event.type === WorkoutEvent.Finish) {
+        message = `finished workout`;
+      } else if (event.type === WorkoutEvent.Start) {
+        message = `started workout`;
+      } else if (event.type === WorkoutEvent.System) {
+        message = event.value.msg;
+      }
+      messageArray.push(
+        <div key={i} className='event'>
+          <span className={'user-event'}>{event.from}</span>
+          {message}
+        </div>
+      )
+    }
+  }
 
   useEffect(() => {
     const fetchDeck = async () => {
@@ -66,7 +102,6 @@ export function WorkoutBegins() {
   };
 
   const handleFinishWorkout = async () => {
-    console.log(workout);
     try {
       const response = await fetch('api/workout/finish', {
         method: 'PUT',
@@ -77,7 +112,8 @@ export function WorkoutBegins() {
       });
 
       if (response.ok) {
-        console.log('Workout finished');
+        WorkoutNotifier.broadcastEvent(userName, WorkoutEvent.End, {});
+        console.log("Workout notifier broadcast workout ended");
         localStorage.removeItem('currentWorkout');
         localStorage.removeItem('currentWorkoutId');
         navigate('/');
@@ -91,6 +127,9 @@ export function WorkoutBegins() {
 
   const handleStartStop = () => {
     setIsRunning((prevIsRunning) => !prevIsRunning);
+    if (!isRunning) {
+      WorkoutNotifier.broadcastEvent(userName, WorkoutEvent.Start, {});
+    }
   };
 
   const getWorkout = (workout, card) => {
@@ -148,7 +187,7 @@ export function WorkoutBegins() {
       </div>
       <div className="d-block text-secondary">
         <h3 className="align-self-start">Notifications</h3>
-        <div className="mb-2">Billy has just began a workout!</div>
+        <div id='workout-messages'className="mb-2">{createMessageArray()}</div>
       </div>
     </main>
   );
