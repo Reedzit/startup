@@ -35,7 +35,7 @@ export function WorkoutBegins() {
     const messageArray = [];
     for (const [i, event] of events.entries()) {
       console.log("event: ", event);
-      let message = 'unknown';
+      let message = ' finished workout';
       if (event.type === WorkoutEvent.Finish) {
         message = ` finished workout`;
       } else if (event.type === WorkoutEvent.Start) {
@@ -114,9 +114,8 @@ export function WorkoutBegins() {
           'Content-Type': 'application/json; charset=UTF-8',
         },
       });
-
+      WorkoutNotifier.broadcastEvent(userName, WorkoutEvent.End, {});
       if (response.ok) {
-        WorkoutNotifier.broadcastEvent(userName, WorkoutEvent.End, {});
         localStorage.removeItem('currentWorkout');
         localStorage.removeItem('currentWorkoutId');
         navigate('/');

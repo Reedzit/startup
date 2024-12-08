@@ -1,7 +1,7 @@
 {
   "name": "startup",
   "version": "1.0.0",
-  "description": "Startup application for BYU CS260 class\r ## Elevator Pitch",
+  "description": "Startup application",
   "main": "index.js",
   "scripts": {
     "dev": "vite",

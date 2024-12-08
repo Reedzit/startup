@@ -95,4 +95,7 @@ The backend will randomly go through all the cards in the deck and send notifica
 
 ## Startup WebSocket Deliverable
 - **WebSocket**
-  - The websocket is now implemented 
+  - The websocket is now implemented in the workout page. When the workout is chosen, the begun workout message sends when the timer is started. It will send a workout finished message when the user presses the finish workout button. 
+  - These messages are displayed to everyone who is on the workoutbegins page. 
+- **Changes**
+  - The notifications bar was excluded from other pages and is only visible in the workoutbegins page. 
