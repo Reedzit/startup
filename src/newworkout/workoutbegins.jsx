@@ -35,15 +35,14 @@ export function WorkoutBegins() {
     const messageArray = [];
     for (const [i, event] of events.entries()) {
       console.log("event: ", event);
-      let message = ' finished workout';
-      if (event.type === WorkoutEvent.Finish) {
+      let message = ' unknown';
+      if (event.type === WorkoutEvent.End) {
         message = ` finished workout`;
       } else if (event.type === WorkoutEvent.Start) {
         message = ` started workout`;
       } else if (event.type === WorkoutEvent.System) {
         message = event.value.msg;
       }
-      console.log("websocket message: ", message);
       messageArray.push(
         <div key={i} className='event'>
           <span className={'user-event'}>{event.from}</span>
@@ -109,13 +108,13 @@ export function WorkoutBegins() {
     try {
       const response = await fetch('api/workout/finish', {
         method: 'PUT',
-        body: JSON.stringify({ userName: localStorage.getItem('userName'), workoutId: localStorage.getItem('currentWorkoutId'), time: `${minutes}:${seconds}` }),
+        body: JSON.stringify({ userName: userName, workoutId: localStorage.getItem('currentWorkoutId'), time: `${minutes}:${seconds}` }),
         headers: {
           'Content-Type': 'application/json; charset=UTF-8',
         },
       });
-      WorkoutNotifier.broadcastEvent(userName, WorkoutEvent.End, {});
       if (response.ok) {
+        WorkoutNotifier.broadcastEvent(userName, WorkoutEvent.End, {});
         localStorage.removeItem('currentWorkout');
         localStorage.removeItem('currentWorkoutId');
         navigate('/');

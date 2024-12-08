@@ -99,3 +99,5 @@ The backend will randomly go through all the cards in the deck and send notifica
   - These messages are displayed to everyone who is on the workoutbegins page. 
 - **Changes**
   - The notifications bar was excluded from other pages and is only visible in the workoutbegins page. 
+- **NOTE**
+  - When testing the websocket on the deployed website, I had to use an incognito window for one of the instances otherwise the locally stored user will be set as the same despite logging in under a different user on a separate tab. 
