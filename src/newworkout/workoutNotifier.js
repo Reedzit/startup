@@ -37,6 +37,7 @@ class WorkoutEventNotifier {
   broadcastEvent(from, type, value) {
     const event = new EventMessage(from, type, value);
     if (this.socket.readyState === WebSocket.OPEN) {
+      console.log('sending event: ', event);
       this.socket.send(JSON.stringify(event));
     } else {
       console.error('socket not open');
@@ -53,7 +54,7 @@ class WorkoutEventNotifier {
 
   receiveEvent(event) {
     this.events.push(event);
-
+    console.log('received event: ', event);
     this.events.forEach((e) => {
       this.handlers.forEach((handler) => {
         handler(e);

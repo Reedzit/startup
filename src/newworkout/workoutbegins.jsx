@@ -12,6 +12,8 @@ export function WorkoutBegins() {
   const [seconds, setSeconds] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [events, setEvent] = React.useState([]);
+  const [workoutStarted, setWorkoutStarted] = useState(false);
+
   const timerRef = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
@@ -30,17 +32,18 @@ export function WorkoutBegins() {
   }
 
   function createMessageArray() {
-    console.log("inside createMessageArray");
     const messageArray = [];
     for (const [i, event] of events.entries()) {
+      console.log("event: ", event);
       let message = 'unknown';
       if (event.type === WorkoutEvent.Finish) {
-        message = `finished workout`;
+        message = ` finished workout`;
       } else if (event.type === WorkoutEvent.Start) {
-        message = `started workout`;
+        message = ` started workout`;
       } else if (event.type === WorkoutEvent.System) {
         message = event.value.msg;
       }
+      console.log("websocket message: ", message);
       messageArray.push(
         <div key={i} className='event'>
           <span className={'user-event'}>{event.from}</span>
@@ -48,6 +51,7 @@ export function WorkoutBegins() {
         </div>
       )
     }
+    return messageArray;
   }
 
   useEffect(() => {
@@ -113,7 +117,6 @@ export function WorkoutBegins() {
 
       if (response.ok) {
         WorkoutNotifier.broadcastEvent(userName, WorkoutEvent.End, {});
-        console.log("Workout notifier broadcast workout ended");
         localStorage.removeItem('currentWorkout');
         localStorage.removeItem('currentWorkoutId');
         navigate('/');
@@ -126,10 +129,13 @@ export function WorkoutBegins() {
   };
 
   const handleStartStop = () => {
-    setIsRunning((prevIsRunning) => !prevIsRunning);
-    if (!isRunning) {
-      WorkoutNotifier.broadcastEvent(userName, WorkoutEvent.Start, {});
-    }
+    setIsRunning((prevIsRunning) => {
+      if (!prevIsRunning && !workoutStarted) {
+        WorkoutNotifier.broadcastEvent(userName, WorkoutEvent.Start, {});
+        setWorkoutStarted(true);
+      }
+      return !prevIsRunning;
+    });
   };
 
   const getWorkout = (workout, card) => {
@@ -187,7 +193,9 @@ export function WorkoutBegins() {
       </div>
       <div className="d-block text-secondary">
         <h3 className="align-self-start">Notifications</h3>
-        <div id='workout-messages'className="mb-2">{createMessageArray()}</div>
+        <div id='workout-messages'className="mb-2">
+          {createMessageArray()}
+        </div>
       </div>
     </main>
   );

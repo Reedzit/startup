@@ -92,3 +92,7 @@ The backend will randomly go through all the cards in the deck and send notifica
   - Stores application data in MongoDB
   - Stores and retrieves credentials in MongoDB
   - Restricts application functionality based on authentication. 
+
+## Startup WebSocket Deliverable
+- **WebSocket**
+  - The websocket is now implemented 
